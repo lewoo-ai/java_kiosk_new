@@ -1,2 +1,4 @@
-package kr.ac.mjc.kiosk.controller;public class ManagerController {
+package kr.ac.mjc.kiosk.controller;
+
+public class ManagerController {
 }

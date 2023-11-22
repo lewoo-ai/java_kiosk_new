@@ -1,2 +1,4 @@
-package kr.ac.mjc.kiosk.service;public class CustomerService {
+package kr.ac.mjc.kiosk.service;
+
+public class CustomerService {
 }

@@ -1,2 +1,4 @@
-package kr.ac.mjc.kiosk.repository;public interface CustomerRepository {
+package kr.ac.mjc.kiosk.repository;
+
+public interface CustomerRepository {
 }

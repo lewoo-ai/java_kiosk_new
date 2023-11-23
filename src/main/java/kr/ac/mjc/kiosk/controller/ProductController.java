@@ -1,7 +1,7 @@
 package kr.ac.mjc.kiosk.controller;
 
 import kr.ac.mjc.kiosk.domain.Product;
-import kr.ac.mjc.kiosk.service.CustomerService;
+import kr.ac.mjc.kiosk.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@
 
-public class FrontController {
+public class ProductController {
 
-    private final CustomerService cs;
+    private final CartService cs;
 
     @Autowired
-    public FrontController(CustomerService cs) {
+    public ProductController(CartService cs) {
         this.cs = cs;
     }
 
@@ -28,7 +28,7 @@ public class FrontController {
 
     @GetMapping("/products")
     public ResponseEntity<List<Product>> findProduct(){
-        List<Product> products =CustomerService.findAll();
+        List<Product> products = CartService.findAll();
         return ResponseEntity.ok().body(products);
     }
 

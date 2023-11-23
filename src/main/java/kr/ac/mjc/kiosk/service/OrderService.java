@@ -1,4 +1,4 @@
 package kr.ac.mjc.kiosk.service;
 
-public class CustomerService {
+public class OrderService {
 }

@@ -32,7 +32,7 @@ public class Order {
     private LocalDateTime orderDate;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderDetails> orderDetails = new ArrayList<>();
+    private List<OrderDetail> orderDetailDetails = new ArrayList<>();
 
 
 }

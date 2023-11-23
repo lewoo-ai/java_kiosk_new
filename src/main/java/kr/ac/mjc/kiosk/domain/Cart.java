@@ -1,35 +1,34 @@
 package kr.ac.mjc.kiosk.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.hibernate.mapping.Set;
-import org.springframework.data.annotation.Id;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.HashSet;
 
 @Data
 @Entity
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
+
 public class Cart {
 
     @Id
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long cartId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="CartId", updatable = false)
+    private Long cartId;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JsonIgnore
-    private User user;
+    @OneToOne
+    @JoinColumn(name = "userId" , nullable = false)
+    private User users;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true,
-            mappedBy = "cart")
-    private Set<ProductInOrder> products = new HashSet<>();
+    @OneToMany
+    @JoinColumn(name = "ProductId", nullable = false)
+    private Category products;
 
     @Override
     public String toString() {
@@ -37,7 +36,7 @@ public class Cart {
     }
 
     public Cart(User user) {
-        this.user = user;
+        this.users = user;
     }
 
 }

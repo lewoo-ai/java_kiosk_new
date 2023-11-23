@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.HashSet;
-
 @Data
 @Entity
 @NoArgsConstructor
@@ -28,7 +26,7 @@ public class Cart {
 
     @OneToMany
     @JoinColumn(name = "ProductId", nullable = false)
-    private Category products;
+    private ProductCategory products;
 
     @Override
     public String toString() {

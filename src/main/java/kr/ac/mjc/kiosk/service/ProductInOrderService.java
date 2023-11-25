@@ -1,8 +1,11 @@
 package kr.ac.mjc.kiosk.service;
 
+import kr.ac.mjc.kiosk.domain.OrderMain;
+import org.springframework.data.domain.Page;
+
 import java.awt.print.Pageable;
 
-public interface OrderDetailService {
+public interface ProductInOrderService {
     Page<OrderMain> findAll(Pageable pageable);
 
     Page<OrderMain> findByStatus(Integer status, Pageable pageable);

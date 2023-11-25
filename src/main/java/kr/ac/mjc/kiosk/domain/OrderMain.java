@@ -11,7 +11,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Setter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class OrderDetail {
+public class OrderMain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

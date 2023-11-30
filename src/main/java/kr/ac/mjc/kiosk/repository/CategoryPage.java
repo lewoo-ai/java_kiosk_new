@@ -1,4 +1,5 @@
-package kr.ac.mjc.kiosk.validation.response;
+package kr.ac.mjc.kiosk.repository;
+
 
 import kr.ac.mjc.kiosk.domain.ProductInfo;
 import org.springframework.data.domain.Page;

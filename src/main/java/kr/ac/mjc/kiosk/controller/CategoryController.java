@@ -11,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
+
 /**
  * Created by Joshua Stamps on 2/24/2021
  */
@@ -37,11 +39,12 @@ public class CategoryController {
 
         ProductCategory cat = categoryService.findByCategoryType(categoryType);
         PageRequest request = PageRequest.of(page - 1, size);
-        Page<ProductInfo> productInCategory = productService.findAllInCategory(categoryType, request);
+        Page<ProductInfo> productInCategory = productService.findAllInCategory(categoryType, (Pageable) request);
         var tmp = new CategoryPage("", productInCategory);
         tmp.setCategory(cat.getCategoryName());
         return tmp;
     }
+
 
 
 }

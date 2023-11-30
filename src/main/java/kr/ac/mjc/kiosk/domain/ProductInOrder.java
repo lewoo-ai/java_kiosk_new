@@ -35,4 +35,6 @@ public class ProductInOrder {
     private List<OrderMain> orderDetailMains = new ArrayList<>();
 
 
+    public ProductInOrder(ProductInfo productInfo, Integer quantity) {
+    }
 }

@@ -2,9 +2,8 @@ package kr.ac.mjc.kiosk.controller;
 
 import kr.ac.mjc.kiosk.domain.Cart;
 import kr.ac.mjc.kiosk.domain.ProductInOrder;
-
+import kr.ac.mjc.kiosk.domain.User;
 import kr.ac.mjc.kiosk.dto.ItemForm;
-
 import kr.ac.mjc.kiosk.repository.ProductInOrderRepository;
 import kr.ac.mjc.kiosk.service.CartService;
 import kr.ac.mjc.kiosk.service.ProductInOrderService;
@@ -15,10 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collection;
 import java.util.Collections;
 
-
+/**
+ * Created by Joshua Stamps 2/22/2021
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/cart")
@@ -35,27 +37,27 @@ public class CartController {
     ProductInOrderRepository productInOrderRepository;
 
     @PostMapping("")
-    public ResponseEntity<Cart> mergeCart(@RequestBody Collection<ProductInOrder> productInOrders) {
-
+    public ResponseEntity<Cart> mergeCart(@RequestBody Collection<ProductInOrder> productInOrders, Principal principal) {
+        User user = userService.findOne(principal.getName());
         try {
-            cartService.mergeLocalCart(productInOrders, null);
+            cartService.mergeLocalCart(productInOrders, user);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Merge Cart Failed");
+            ResponseEntity.badRequest().body("Merge Cart Failed");
         }
-        return ResponseEntity.ok(cartService.getCart(null));
+        return ResponseEntity.ok(cartService.getCart(user));
     }
 
     @GetMapping("")
-    public Cart getCart() {
-
-        return cartService.getCart(null);
+    public Cart getCart(Principal principal) {
+        User user = userService.findOne(principal.getName());
+        return cartService.getCart(user);
     }
 
     @PostMapping("/add")
-    public boolean addToCart(@RequestBody ItemForm form) {
+    public boolean addToCart(@RequestBody ItemForm form, Principal principal) {
         var productInfo = productService.findOne(form.getProductId());
         try {
-            mergeCart(Collections.singleton(new ProductInOrder(productInfo, form.getQuantity())));
+            mergeCart(Collections.singleton(new ProductInOrder(productInfo, form.getQuantity())), principal);
         } catch (Exception e) {
             return false;
         }
@@ -63,20 +65,23 @@ public class CartController {
     }
 
     @PutMapping("/itemId")
-    public ProductInOrder modifyItem(@PathVariable("itemId") String itemId, @RequestBody Integer quantity) {
-        productInOrderService.update(itemId, quantity, null);
-        return productInOrderService.findOne(itemId, null);
+    public ProductInOrder modifyItem(@PathVariable("itemId") String itemId, @RequestBody Integer quantity, Principal principal) {
+        User user = userService.findOne(principal.getName());
+        productInOrderService.update(itemId, quantity, user);
+        return productInOrderService.findOne(itemId, user);
     }
 
-    @DeleteMapping("/{itemId}")
-    public void deleteItem(@PathVariable("itemId") String itemId) {
-        cartService.delete(itemId, null);
-        // flush memory into database
+    @DeleteMapping("/itemId")
+    public void deleteItem(@PathVariable("itemId") String itemId, Principal principal) {
+        User user = userService.findOne(principal.getName());
+        cartService.delete(itemId, user);
+        //flush memory into database
     }
 
     @PostMapping("/checkout")
-    public ResponseEntity<String> checkout() {
-        cartService.checkout(null);
-        return ResponseEntity.ok("Checkout successful");
+    public ResponseEntity checkout(Principal principal) {
+        User user = userService.findOne(principal.getName()); //Email as username
+        cartService.checkout(user);
+        return ResponseEntity.ok(null);
     }
 }

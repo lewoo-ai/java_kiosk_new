@@ -15,41 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.AuthenticationException;
 import java.security.Principal;
 
-/**
- * Created by Joshua Stamps on 2/27/2021
- */
+
 @CrossOrigin
 @RestController
 public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    JwtProvider jwtProvider;
 
-    @Autowired
-    AuthenticationManager authenticationManager;
 
-    @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginForm loginForm) {
-        // Throws exception if Authentication failed
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(
-                            loginForm.getUsername(), loginForm.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            String jwt = jwtProvider.generate(authentication);
-
-            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-            User user = userService.findOne(userDetails.getUsername());
-
-            return ResponseEntity.ok(
-                    new JwtResponse(jwt, user.getEmail(),
-                            user.getName(), user.getRole()));
-        } catch (AuthenticationException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
 
     @PostMapping("/register")
     public ResponseEntity<User> save(@RequestBody User user) {

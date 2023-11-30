@@ -21,7 +21,8 @@ public class ProductController {
 
     @GetMapping("/")
     public String home() {
-        return "index";
+        return "index"; // 이 부분은 웹 페이지의 이름 또는 경로로 수정해야 합니다.
+    }
 
 
     @GetMapping("/products")

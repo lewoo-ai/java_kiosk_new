@@ -2,20 +2,18 @@ package kr.ac.mjc.kiosk.controller;
 
 import kr.ac.mjc.kiosk.domain.ProductCategory;
 import kr.ac.mjc.kiosk.domain.ProductInfo;
+import kr.ac.mjc.kiosk.repository.CategoryPage;
 import kr.ac.mjc.kiosk.service.CategoryService;
 import kr.ac.mjc.kiosk.service.ProductService;
-
-import kr.ac.mjc.kiosk.validation.response.CategoryPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import kr.ac.mjc.kiosk.validation.response.CategoryPage;
 
 import java.awt.print.Pageable;
 
-/**
- * Created by Joshua Stamps on 2/24/2021
- */
+
 @RestController
 @CrossOrigin
 public class CategoryController {

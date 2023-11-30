@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.Collection;
+
 @Entity
 @Getter
 @Setter
@@ -32,4 +34,7 @@ public class OrderMain {
     @JoinColumn(name = "product_id", nullable = false)
     private ProductInfo productInfo;
 
+    public Collection<ProductInOrder> getProducts() {
+        return null;
+    }
 }

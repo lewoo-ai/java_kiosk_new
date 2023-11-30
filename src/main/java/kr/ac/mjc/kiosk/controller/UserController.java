@@ -1,14 +1,18 @@
 package kr.ac.mjc.kiosk.controller;
 
+import kr.ac.mjc.kiosk.JWT.JwtProvider;
 import kr.ac.mjc.kiosk.domain.User;
 import kr.ac.mjc.kiosk.service.UserService;
+
 import kr.ac.mjc.kiosk.validation.request.LoginForm;
 import kr.ac.mjc.kiosk.validation.response.JwtResponse;
-
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.naming.AuthenticationException;
 import java.security.Principal;
 
 /**

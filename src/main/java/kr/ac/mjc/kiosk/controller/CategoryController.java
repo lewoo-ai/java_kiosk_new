@@ -4,8 +4,8 @@ import kr.ac.mjc.kiosk.domain.ProductCategory;
 import kr.ac.mjc.kiosk.domain.ProductInfo;
 import kr.ac.mjc.kiosk.service.CategoryService;
 import kr.ac.mjc.kiosk.service.ProductService;
-import kr.ac.mjc.kiosk.validation.response.CategoryPage;
 
+import kr.ac.mjc.kiosk.validation.response.CategoryPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

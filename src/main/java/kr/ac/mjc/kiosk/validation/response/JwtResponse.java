@@ -2,8 +2,6 @@ package kr.ac.mjc.kiosk.validation.response;
 
 import lombok.Data;
 
-public class JwtResponse {
-
     @Data
     public class JwtResponse {
         private String token;

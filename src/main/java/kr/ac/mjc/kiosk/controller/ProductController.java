@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@
+
 
 public class ProductController {
 
@@ -21,8 +21,7 @@ public class ProductController {
 
     @GetMapping("/")
     public String home() {
-        return "index"; // 이 부분은 웹 페이지의 이름 또는 경로로 수정해야 합니다.
-    }
+        return "index";
 
 
     @GetMapping("/products")

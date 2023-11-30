@@ -2,8 +2,14 @@ package kr.ac.mjc.kiosk.service;
 
 import kr.ac.mjc.kiosk.domain.User;
 
-public class UserService {
-    public User findOne(String name) {
-        return null;
-    }
+import java.util.Collection;
+
+public interface UserService {
+    User findOne(String email);
+
+    Collection<User> findByRole(String role);
+
+    User save(User user);
+
+    User update(User user);
 }

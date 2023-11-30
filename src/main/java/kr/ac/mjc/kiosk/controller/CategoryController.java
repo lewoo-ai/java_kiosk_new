@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 
-/**
- * Created by Joshua Stamps on 2/24/2021
- */
+
 @RestController
 @CrossOrigin
 public class CategoryController {

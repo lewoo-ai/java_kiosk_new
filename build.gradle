@@ -23,6 +23,7 @@ dependencies {
 	implementation 'com.mysql:mysql-connector-j'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
 
 }
 

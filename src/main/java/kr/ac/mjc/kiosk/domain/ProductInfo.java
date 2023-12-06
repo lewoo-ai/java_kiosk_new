@@ -38,6 +38,6 @@ public class ProductInfo {
     private String img;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private ProductCategory productCategory;
+    @JoinColumn(name = "categoryId", nullable = false)
+    private ProductCategory category;
 }

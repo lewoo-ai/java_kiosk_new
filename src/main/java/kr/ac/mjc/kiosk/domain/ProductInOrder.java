@@ -31,7 +31,7 @@ public class ProductInOrder {
     @Column(name="orderDate")
     private LocalDateTime orderDate;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "productInOrder", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderMain> orderDetailMains = new ArrayList<>();
 
 

@@ -10,8 +10,6 @@ import java.util.Collection;
 import java.util.List;
 
 public interface CartService {
-    static List<ProductInfo> findAll() {
-    }
 
     Cart getCart(User user);
     void mergeLocalCart(Collection<ProductInOrder> productInOrders, User user);

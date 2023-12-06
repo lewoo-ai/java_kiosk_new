@@ -27,14 +27,24 @@ public class OrderMain {
     private Integer quantity;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "productInOrderId", nullable = false)
     private ProductInOrder productInOrder;
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private ProductInfo productInfo;
 
+
+
     public Collection<ProductInOrder> getProducts() {
         return null;
+    }
+
+    public ProductInOrder getProductInOrder() {
+        return productInOrder;
+    }
+
+    public void setProductInOrder(ProductInOrder productInOrder) {
+        this.productInOrder = productInOrder;
     }
 }

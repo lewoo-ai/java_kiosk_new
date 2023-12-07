@@ -48,7 +48,7 @@ html {
 
 
 /*유틸리티*/
-.hgg99 {
+.BM {
     font-family: 'BM', 'BM', 'Malgun Gothic', dotum, sans-serif;
 }
 
@@ -96,7 +96,7 @@ html {
     border-top: 1px solid rgb(219, 219, 219);
     border-bottom: 1px solid rgb(219, 219, 219);
     border-right: 1px solid rgb(240, 240, 240);
-    font-family: "HGG99";
+    font-family: "BM";
     height: 65px;
     font-size: 17px;
     display: inline-block;
@@ -292,7 +292,7 @@ html {
     font-size: 16px;
     margin-top: 5px;
     color: #e22219;
-    font-family: "HGG99";
+    font-family: "BM";
 }
 
 .product-wrapper:hover {
@@ -347,7 +347,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'HGG99';
+    font-family: 'BM';
 }
 
 .cart-text-wrapper {
@@ -371,7 +371,7 @@ html {
     align-items: center;
     justify-content: center;
     text-shadow: 0px 0px 1px rgb(0, 0, 0);
-    font-family: 'HGG99';
+    font-family: 'BM';
 }
 
 .cart-badge {
@@ -384,7 +384,7 @@ html {
     font-size: 14px;
     position: relative;
     color: white;
-    font-family: 'HGG99';
+    font-family: 'BM';
     margin: 0px 5px;
     text-shadow: 0px 0px 1px rgb(0, 0, 0);
 }
@@ -394,7 +394,7 @@ html {
     color: rgb(255, 230, 0);
     text-align: center;
     letter-spacing: 1.2px;
-    font-family: "HGG99";
+    font-family: "BM";
     transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
 
 }
@@ -693,7 +693,7 @@ td {
     background-color: transparent !important;
     color: white;
     font-size: 18px;
-    font-family: "HGG99";
+    font-family: "BM";
 }
 
 th {
@@ -877,7 +877,7 @@ td {
     border: none;
     background-color: rgba(31, 31, 31);
     height: 40px;
-    font-family: "HGG99";
+    font-family: "BM";
     border-radius: 10px;
     font-size: 15px;
     margin: 15px 30px;
@@ -1147,7 +1147,7 @@ td {
     width: 30%;
     text-align: center;
     font-size: 18px;
-    font-family: "HGG99";
+    font-family: "BM";
     letter-spacing: 1px;
     color: black;
 }
@@ -1156,7 +1156,7 @@ td {
     width: 25%;
     text-align: center;
     font-size: 18px;
-    font-family: "HGG99";
+    font-family: "BM";
     color: black;
 }
 

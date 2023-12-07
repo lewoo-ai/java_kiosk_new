@@ -21,17 +21,23 @@ public class ProductInOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", updatable = false)
     private Long id;
+
+    @Column(name="ordersDetailsCode", updatable = false)
+    private String ordersDetailsCode;
     @Column(name="orderCode", updatable = false)
-    private Long orderCode;
+    private String orderCode;
 
-    @Column(name ="orderAmount", nullable = false)
-    private String orderAmount;
+    @Column(name="productCode", updatable = false)
+    private String productCode;
 
-    @CreatedDate
-    @Column(name="orderDate")
-    private LocalDateTime orderDate;
+    @Column(name="productCode2", updatable = false)
+    private String productCode2;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name ="ordersDetailsQTY", nullable = false)
+    private int ordersDetailsQTY;
+
+
+    @OneToMany(mappedBy = "productInOrder", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderMain> orderDetailMains = new ArrayList<>();
 
 

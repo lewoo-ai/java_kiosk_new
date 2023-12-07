@@ -20,24 +20,27 @@ public class ProductInfo {
     private Long id;
 
     @Column(name="productCode", updatable = false)
-    private Long productCode;
+    private String productCode;
 
-    @Column(name ="product_name", nullable = false)
-    private String product_name;
+    @Column(name ="productName", nullable = false)
+    private String productName;
+
+    @Column(name="categoryCode", updatable = false)
+    private String categoryCode;
 
     @Column(name = "price", nullable = false)
-    private String price;
+    private int price;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "productDetails", nullable = false)
+    private String productDetails;
 
-    @Column(name = "option", nullable = false)
-    private String option;
+    @Column(name = "productOptions", nullable = false)
+    private String productOptions;
 
-    @Column(name = "img", nullable = false)
-    private String img;
+    @Column(name = "productImage", nullable = false)
+    private String productImage;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private ProductCategory productCategory;
+    @JoinColumn(name = "categoryId", nullable = false)
+    private ProductCategory category;
 }

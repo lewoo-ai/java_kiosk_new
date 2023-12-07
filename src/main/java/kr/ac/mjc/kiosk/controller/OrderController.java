@@ -2,7 +2,6 @@ package kr.ac.mjc.kiosk.controller;
 
 import kr.ac.mjc.kiosk.domain.OrderDetails;
 import kr.ac.mjc.kiosk.domain.Orders;
-import kr.ac.mjc.kiosk.service.OrderService;
 
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;

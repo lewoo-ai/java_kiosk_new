@@ -2,8 +2,6 @@ package kr.ac.mjc.kiosk.controller;
 
 import kr.ac.mjc.kiosk.domain.Category;
 import kr.ac.mjc.kiosk.domain.Product;
-import kr.ac.mjc.kiosk.service.CategoryService;
-import kr.ac.mjc.kiosk.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

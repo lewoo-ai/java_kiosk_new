@@ -1,14 +1,27 @@
 package kr.ac.mjc.kiosk.service;
 
-import kr.ac.mjc.kiosk.domain.OrderMain;
-import kr.ac.mjc.kiosk.domain.ProductInOrder;
-import kr.ac.mjc.kiosk.domain.User;
+import kr.ac.mjc.kiosk.domain.OrderDetails;
+import kr.ac.mjc.kiosk.domain.Orders;
 import org.springframework.data.domain.Page;
 
 import java.awt.print.Pageable;
 
 public interface ProductInOrderService {
-    void update(String itemId, Integer quantity, User user);
+    Page<OrderDetails> findAll(Pageable pageable);
 
-    ProductInOrder findOne(String itemId, User user);
+    Page<OrderDetails> findByStatus(Integer status, Pageable pageable);
+
+    Page<OrderDetails> findByBuyerEmail(String email, Pageable pageable);
+
+    Page<OrderDetails> findByBuyerPhone(String phone, Pageable pageable);
+
+    OrderDetails findOne(Long orderId);
+
+    OrderDetails finish(Long orderId);
+
+    OrderDetails cancel(Long orderId);
+
+    Orders findOne(String itemId, User user);
+
+    void update(String itemId, Integer quantity, User user);
 }

@@ -1,15 +1,10 @@
 package kr.ac.mjc.kiosk.controller;
 
-import kr.ac.mjc.kiosk.domain.Cart;
-import kr.ac.mjc.kiosk.domain.ProductInOrder;
-import kr.ac.mjc.kiosk.domain.User;
+import kr.ac.mjc.kiosk.domain.Orders;
 import kr.ac.mjc.kiosk.dto.ItemForm;
 import kr.ac.mjc.kiosk.repository.ProductInOrderRepository;
-import kr.ac.mjc.kiosk.service.CartService;
 import kr.ac.mjc.kiosk.service.ProductInOrderService;
 import kr.ac.mjc.kiosk.service.ProductService;
-import kr.ac.mjc.kiosk.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +13,9 @@ import java.security.Principal;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Created by Joshua Stamps 2/22/2021
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/cart")
@@ -34,10 +32,10 @@ public class CartController {
     ProductInOrderRepository productInOrderRepository;
 
     @PostMapping("")
-    public ResponseEntity<Cart> mergeCart(@RequestBody Collection<ProductInOrder> productInOrders, Principal principal) {
+    public ResponseEntity<Cart> mergeCart(@RequestBody Collection<Orders> orders, Principal principal) {
         User user = userService.findOne(principal.getName());
         try {
-            cartService.mergeLocalCart(productInOrders, user);
+            cartService.mergeLocalCart(orders, user);
         } catch (Exception e) {
             ResponseEntity.badRequest().body("Merge Cart Failed");
         }
@@ -54,7 +52,7 @@ public class CartController {
     public boolean addToCart(@RequestBody ItemForm form, Principal principal) {
         var productInfo = productService.findOne(form.getProductId());
         try {
-            mergeCart(Collections.singleton(new ProductInOrder(productInfo, form.getQuantity())), principal);
+            mergeCart(Collections.singleton(new Orders(productInfo, form.getQuantity())), principal);
         } catch (Exception e) {
             return false;
         }
@@ -62,7 +60,7 @@ public class CartController {
     }
 
     @PutMapping("/itemId")
-    public ProductInOrder modifyItem(@PathVariable("itemId") String itemId, @RequestBody Integer quantity, Principal principal) {
+    public Orders modifyItem(@PathVariable("itemId") String itemId, @RequestBody Integer quantity, Principal principal) {
         User user = userService.findOne(principal.getName());
         productInOrderService.update(itemId, quantity, user);
         return productInOrderService.findOne(itemId, user);

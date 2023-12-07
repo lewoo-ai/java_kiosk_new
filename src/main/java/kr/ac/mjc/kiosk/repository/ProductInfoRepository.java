@@ -1,18 +1,18 @@
 package kr.ac.mjc.kiosk.repository;
 
-import kr.ac.mjc.kiosk.domain.ProductInfo;
+import kr.ac.mjc.kiosk.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductInfoRepository extends JpaRepository<ProductInfo,Integer> {
+public interface ProductInfoRepository extends JpaRepository<Product,Integer> {
 
-    ProductInfo findByproductId(String id);
+    Product findByproductId(String id);
 
-    Page<ProductInfo> findAllByProductStatusOrderByProductIdAsc(Integer productStatus, Pageable pageable);
+    Page<Product> findAllByProductStatusOrderByProductIdAsc(Integer productStatus, Pageable pageable);
 
-    Page<ProductInfo> findAllByCategoryTypeOrderByProductIdAsc(Integer categoryType, Pageable pageable);
+    Page<Product> findAllByCategoryTypeOrderByProductIdAsc(Integer categoryType, Pageable pageable);
 
-    Page<ProductInfo> findAllByOrderByProductId(Pageable pageable);
+    Page<Product> findAllByOrderByProductId(Pageable pageable);
 
 }

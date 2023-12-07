@@ -1,15 +1,15 @@
 package kr.ac.mjc.kiosk.service;
 
-import kr.ac.mjc.kiosk.domain.ProductCategory;
+import kr.ac.mjc.kiosk.domain.Category;
 
 import java.util.List;
 
 public interface CategoryService {
-    List<ProductCategory> findAll();
+    List<Category> findAll();
 
-    ProductCategory findByCategoryType(Integer categoryType);
+    Category findByCategoryType(Integer categoryType);
 
-    List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
+    List<Category> findByCategoryTypeIn(List<Integer> categoryTypeList);
 
-    ProductCategory save(ProductCategory productCategory);
+    Category save(Category category);
 }

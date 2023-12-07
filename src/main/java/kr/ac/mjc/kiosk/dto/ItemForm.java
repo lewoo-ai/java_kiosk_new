@@ -1,9 +1,8 @@
 package kr.ac.mjc.kiosk.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 
 
 @Data
@@ -18,15 +17,8 @@ public class ItemForm {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
     public String getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 }

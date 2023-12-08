@@ -1,7 +1,10 @@
 package kr.ac.mjc.kiosk.dto;
 
+import kr.ac.mjc.kiosk.domain.Category;
 import kr.ac.mjc.kiosk.domain.Product;
 import lombok.*;
+
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -38,5 +41,13 @@ public class ProductDto {
         product.setProductOptions(this.productOptions);
         product.setProductImage(this.productImage);
         return product;
+    }
+
+    public boolean matchCategoryId(final Category category) {
+        return Objects.equals(category.getId(), this.id);
+    }
+
+    public void setProductId(final Long productId) {
+        this.id = productId; // id 필드에 값을 설정
     }
 }

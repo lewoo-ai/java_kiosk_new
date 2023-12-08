@@ -29,9 +29,7 @@ public class CategoryDto {
                 .collect(Collectors.toList());
     }
 
-    public Long getId() {
-        return id;
-    }
+
 
     public String getCategoryName() {
         return categoryName;

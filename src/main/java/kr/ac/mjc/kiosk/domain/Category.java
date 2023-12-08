@@ -33,12 +33,19 @@ public class Category {
     public List<Product> getProductList() {
         return productList;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
     public Category() {
         this.categoryCode = categoryCode;
         this.categoryName = categoryName;

@@ -20,17 +20,18 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Long> createProduct(@RequestBody ProductDto productDto) {
+    @PostMapping("/addProduct")
+    public ResponseEntity<Long> addProduct(@RequestBody ProductDto productDto) {
         Long productId = productService.save(productDto);
         return new ResponseEntity<>(productId, HttpStatus.CREATED);
     }
+
 
 
 }

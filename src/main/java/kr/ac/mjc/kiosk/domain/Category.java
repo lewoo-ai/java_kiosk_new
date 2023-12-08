@@ -14,16 +14,16 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
+
     @Column(name = "categoryCode", updatable = false)
     private String categoryCode;
+
     @Column(name = "categoryName", nullable = false)
     private String categoryName;
 

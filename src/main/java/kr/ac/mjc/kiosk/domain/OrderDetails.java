@@ -33,8 +33,8 @@ public class OrderDetails {
 
 
     @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Orders orders;
+    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    private Orders order;
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)

@@ -15,10 +15,6 @@ public class ProductCategoryResponse {
     private Long categoryId;
     private List<ProductDto> products;
 
-    public ProductCategoryResponse(String categoryName, Long categoryId, List<ProductDto> products) {
-
-    }
-
     public static ProductCategoryResponse create(String categoryName, Long categoryId, List<ProductDto> products) {
         return new ProductCategoryResponse(categoryName, categoryId, products);
     }

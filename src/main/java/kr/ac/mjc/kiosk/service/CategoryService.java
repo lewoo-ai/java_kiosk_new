@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,5 +33,11 @@ public class CategoryService {
         Category category = categoryDto.toEntity();
         Category savedCategory = categoryRepository.save(category);
         return savedCategory.getId();
+    }
+
+    public Optional<CategoryDto> getCategoryById(Long id) {
+        Optional<Category> categoryOptional = categoryRepository.findById(id);
+
+        return categoryOptional.map(CategoryDto::new);
     }
 }

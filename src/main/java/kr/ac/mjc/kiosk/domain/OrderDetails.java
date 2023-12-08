@@ -27,8 +27,6 @@ public class OrderDetails {
     @Column(name ="productCode", nullable = false)
     private String productCode;
 
-    @Column(name ="productCode2", nullable = false)
-    private String productCode2;
 
     @Column(name ="ordersDetailsQTY", nullable = false)
     private Integer ordersDetailsQTY;
@@ -47,10 +45,8 @@ public class OrderDetails {
         StringBuilder builder = new StringBuilder();
         builder.append("주문상세번호 ");
         builder.append(orderDetailCode);
-        builder.append(" | 사이드 상품 코드 : ");
+        builder.append(" | 상품 코드 : ");
         builder.append(productCode);
-        builder.append(" | 음료 상품 코드 : ");
-        builder.append(productCode2);
         builder.append(" | 주문 수량 : ");
         builder.append(ordersDetailsQTY);
         return builder.toString();

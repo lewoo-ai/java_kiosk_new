@@ -2,6 +2,7 @@ package kr.ac.mjc.kiosk.domain;
 
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Category {
@@ -28,7 +30,16 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> productList = new ArrayList<>();
 
-    public Category(String categoryCode, String categoryName) {
+    public List<Product> getProductList() {
+        return productList;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Category() {
         this.categoryCode = categoryCode;
         this.categoryName = categoryName;
     }
@@ -54,4 +65,6 @@ public class Category {
         return "Category [categoryCode=" + categoryCode + ", categoryName=" + categoryName + ", productList="
                 + productList + "]";
     }
+
+
 }

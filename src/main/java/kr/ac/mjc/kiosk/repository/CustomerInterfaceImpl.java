@@ -14,6 +14,7 @@ import kiosk.mvc.model.dto.Orders;
 import kiosk.mvc.model.dto.OrdersDetails;
 import kiosk.mvc.model.dto.Product;
 import kiosk.mvc.util.DbUtil;
+import kr.ac.mjc.kiosk.domain.Category;
 
 public class CustomerInterfaceImpl implements CustomerInterface {
 
@@ -21,7 +22,7 @@ public class CustomerInterfaceImpl implements CustomerInterface {
     /**
      * 카테고리별로 상품의 정보를 가져오는 메소드
      * select.productByCategory=select * from category join product using(category_code)
-     * */
+     */
     @Override
     public List<Category> selectProductByCategory() throws SQLException {
         Connection con = null;

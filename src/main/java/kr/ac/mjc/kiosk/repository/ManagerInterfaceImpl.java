@@ -13,6 +13,7 @@ import kiosk.mvc.model.dto.Orders;
 import kiosk.mvc.model.dto.OrdersDetails;
 import kiosk.mvc.model.dto.Product;
 import kiosk.mvc.util.DbUtil;
+import kr.ac.mjc.kiosk.domain.Orders;
 import kr.ac.mjc.kiosk.util.DbUtil;
 
 public class ManagerInterfaceImpl implements ManagerInterface {
@@ -168,7 +169,7 @@ public class ManagerInterfaceImpl implements ManagerInterface {
 
     /**
      * 판매 내역 조회
-     * */
+     */
     @Override
     public List<Orders> ordersSelect() throws SQLException{
         Connection con = null;

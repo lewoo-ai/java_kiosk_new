@@ -1,26 +1,29 @@
 package kr.ac.mjc.kiosk.service;
 
-public interface CustomerServiceImpl {
+import kr.ac.mjc.kiosk.domain.Category;
+import kr.ac.mjc.kiosk.domain.Orders;
+import kr.ac.mjc.kiosk.repository.CustomerInterface;
+import kr.ac.mjc.kiosk.repository.CustomerInterfaceImpl;
+
+import java.sql.SQLException;
+import java.util.List;
 
 
-    public class CustomerServiceImpl implements CustomerService {
-        CustomerDAO customerDAO = new CustomerDAOImpl();
+public class CustomerServiceImpl implements CustomerService {
+    CustomerInterface customerInterface = new CustomerInterfaceImpl();
 
-        @Override
-        public List<Category> selectProductByCategory() throws SQLException {
-            return customerDAO.selectProductByCategory();
-        }
+    @Override
+    public List<Category> selectProductByCategory() throws SQLException {
+        return customerInterface.selectProductByCategory();
+    }
 
-        @Override
-        public List<Bundle> selectBundle() throws SQLException {
-            return customerDAO.selectBundle();
-        }
 
-        @Override
-        public int insertOrders(Orders orders) throws SQLException {
-            int result = customerDAO.insertOrders(orders);
-            if(result == 0) throw new SQLException("주문이 실패하였습니다.");
-            return result;
+    @Override
+    public int insertOrders(Orders orders) throws SQLException {
+        int result = customerInterface.insertOrders(orders);
+        if(result == 0) throw new SQLException("주문이 실패하였습니다.");
+        return result;
 
-        }
+    }
+
 }

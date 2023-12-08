@@ -48,35 +48,7 @@ public class ManagerController {
         }
     }
 
-    @PostMapping("/bundle")
-    public ResponseEntity<String> addBundle(@RequestBody Bundle bundle) {
-        try {
-            managerService.bundleInsert(bundle);
-            return ResponseEntity.ok("Bundle added successfully.");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
 
-    @PutMapping("/bundle")
-    public ResponseEntity<String> updateBundle(@RequestBody Bundle bundle) {
-        try {
-            managerService.bundleUpdate(bundle);
-            return ResponseEntity.ok("Bundle updated successfully.");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
-    @DeleteMapping("/bundle/{bundleCode}")
-    public ResponseEntity<String> deleteBundle(@PathVariable String bundleCode) {
-        try {
-            managerService.bundleDelete(bundleCode);
-            return ResponseEntity.ok("Bundle deleted successfully.");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
 
     @GetMapping("/orders")
     public ResponseEntity<List<Orders>> getOrders() {

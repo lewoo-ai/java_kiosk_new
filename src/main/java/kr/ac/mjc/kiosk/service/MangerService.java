@@ -1,5 +1,11 @@
 package kr.ac.mjc.kiosk.service;
 
+import kr.ac.mjc.kiosk.domain.Orders;
+import kr.ac.mjc.kiosk.domain.Product;
+
+import java.sql.SQLException;
+import java.util.List;
+
 public interface MangerService {
     /**
      * 관리자 상품 등록
@@ -16,15 +22,6 @@ public interface MangerService {
      */
     void productDelete(String productCode) throws SQLException;
 
-    /**
-     * 관리자 세트 등록
-     */
-    void bundleInsert(Bundle bundle) throws SQLException;
-
-    /**
-     * 관리자 세트 수정
-     */
-    void bundleUpdate(Bundle bundle) throws SQLException;
 
     /**
      * 관리자 세트 삭제

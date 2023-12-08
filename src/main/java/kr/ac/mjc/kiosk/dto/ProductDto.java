@@ -33,7 +33,6 @@ public class ProductDto {
 
     public Product toEntity() {
         Product product = new Product();
-        product.setId(this.id);
         product.setProductCode(this.productCode);
         product.setProductName(this.productName);
         product.setProductPrice(this.productPrice);

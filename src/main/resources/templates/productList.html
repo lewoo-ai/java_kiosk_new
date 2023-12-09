@@ -16,11 +16,9 @@ User
         <th>상품 코드</th>
         <th>가격</th>
         <th>상세 정보</th>
-        <!-- 필요한 다른 열들 -->
     </tr>
     </thead>
     <tbody>
-    <!-- 서버에서 가져온 상품 데이터를 반복해서 표시 -->
     <tr th:each="product : ${products}">
         <td th:text="${product.id}"></td>
         <td th:text="${product.productName}">아메리카노</td>
@@ -28,7 +26,6 @@ User
         <td th:text="${product.productPrice}">3000</td>
         <td th:text="${product.productDetails}">기본샷</td>
         <img th:src="${product.productImage}" width="100" height="100" alt="Product Image">
-        <!-- 필요한 다른 열들 -->
     </tr>
     </tbody>
 </table>

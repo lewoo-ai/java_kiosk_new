@@ -10,12 +10,13 @@ import java.util.Optional;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
+    Optional<Category> findByCategoryName(String categoryName);
+
     Optional<Category> findByCategoryCode(String categoryCode);
 
     List<Category> findAll();
 
-    Optional<Category> findBy(Long id);
+    Optional<Category> findById(Long id);
 
-    Optional<Category> findBy(String name);
 
 }

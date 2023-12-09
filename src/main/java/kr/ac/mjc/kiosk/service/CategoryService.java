@@ -16,6 +16,10 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    public Optional<Category> findCategoryByCategoryName(String categoryName) {
+        return categoryRepository.findByCategoryName(categoryName);
+    }
+
     public List<CategoryDto> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();
         return categories.stream()
@@ -40,4 +44,7 @@ public class CategoryService {
 
         return categoryOptional.map(CategoryDto::new);
     }
+
+
+
 }

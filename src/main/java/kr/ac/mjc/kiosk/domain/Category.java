@@ -2,10 +2,7 @@ package kr.ac.mjc.kiosk.domain;
 
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.ArrayList;
@@ -15,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
+@AllArgsConstructor
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +27,10 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> productList = new ArrayList<>();
+
+    public Category() {
+
+    }
 
     public List<Product> getProductList() {
         return productList;
@@ -46,10 +48,6 @@ public class Category {
         this.productList = productList;
     }
 
-    public Category() {
-        this.categoryCode = categoryCode;
-        this.categoryName = categoryName;
-    }
 
     public String getCategoryCode() {
         return categoryCode;

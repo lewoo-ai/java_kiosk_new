@@ -1,7 +1,10 @@
 package kr.ac.mjc.kiosk.controller;
 
+import ch.qos.logback.core.model.Model;
 import kr.ac.mjc.kiosk.dto.CategoryDto;
+import kr.ac.mjc.kiosk.dto.ProductDto;
 import kr.ac.mjc.kiosk.service.CategoryService;
+import kr.ac.mjc.kiosk.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +41,16 @@ public class CategoryController {
         return new ResponseEntity<>(categoryId, HttpStatus.CREATED);
     }
 
+
+
+    // 새로운 엔드포인트: 특정 카테고리 코드에 해당하는 상품 목록을 반환
+    @GetMapping("/{categoryCode}/products")
+    public ResponseEntity<List<ProductDto>> getProductsByCategoryCode(@PathVariable String categoryCode) {
+        // CategoryService를 통해 카테고리 코드에 해당하는 상품 목록 조회
+        List<ProductDto> products = categoryService.getProductsByCategoryCode(categoryCode);
+        // 조회된 상품 목록을 응답
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 
 
 }

@@ -1,11 +1,14 @@
 package kr.ac.mjc.kiosk.service;
 
 import kr.ac.mjc.kiosk.domain.Category;
+import kr.ac.mjc.kiosk.domain.Product;
 import kr.ac.mjc.kiosk.dto.CategoryDto;
+import kr.ac.mjc.kiosk.dto.ProductDto;
 import kr.ac.mjc.kiosk.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,6 +48,19 @@ public class CategoryService {
         return categoryOptional.map(CategoryDto::new);
     }
 
+
+    // 새로운 메서드: 카테고리 코드에 해당하는 상품 목록 조회
+    public List<ProductDto> getProductsByCategoryCode(String categoryCode) {
+        // CategoryRepository에서 해당 카테고리 코드에 해당하는 상품 목록을 조회하는 메서드 호출
+        List<Product> products = categoryRepository.findByCategoryCode(categoryCode)
+                .map(Category::getProductList)
+                .orElse(Collections.emptyList());
+        // Product 엔티티를 ProductDto로 변환
+        List<ProductDto> productDtos = products.stream()
+                .map(ProductDto::new)
+                .collect(Collectors.toList());
+        return productDtos;
+    }
 
 
 }

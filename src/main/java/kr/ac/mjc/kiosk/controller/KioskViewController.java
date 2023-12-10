@@ -31,18 +31,18 @@ public class KioskViewController {
         this.orderDetailsService = orderDetailsService;
     }
 
-    @GetMapping("/products")
-    public String showAllProducts(Model model) {
-        List<ProductDto> products = productService.getAllProducts();
-        model.addAttribute("products", products);
-        return "products";
-    }
-
     @GetMapping("/categories")
     public String showAllCategories(Model model) {
         List<CategoryDto> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
         return "categories";
+    }
+
+    @GetMapping("/products")
+    public String showAllProducts(Model model) {
+        List<ProductDto> products = productService.getAllProducts();
+        model.addAttribute("products", products);
+        return "products";
     }
 
     @GetMapping("/categories/{categoryCode}/products")

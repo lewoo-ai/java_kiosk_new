@@ -198,7 +198,7 @@ initBundleOptions = function () {
         $(target).find(".modal-select-bundle-img img").attr("src", $(this).find("img").attr('src'));
         $(target).find(".modal-select-bundle-title").text($(this).find(".modal-side-select-title").text());
 
-        $(this).find(".modal-side-select-img").append("<img src='../images/check.png' class='checked' />");
+        $(this).find(".modal-side-select-img").append("<img src='../../main/resources/images/check.png' class='checked' />");
 
     });
 

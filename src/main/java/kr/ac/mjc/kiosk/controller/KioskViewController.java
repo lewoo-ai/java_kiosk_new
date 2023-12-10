@@ -25,6 +25,17 @@ public class KioskViewController {
         this.categoryService = categoryService;
     }
 
+    @GetMapping("/kiosk")
+    public String showKioskMainPage(Model model) {
+        List<CategoryDto> categories = categoryService.getAllCategories();
+        List<ProductDto> products = productService.getAllProducts();
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("products", products);
+
+        return "KioskView"; // Assuming you have a Thymeleaf template named kioskMain.html
+    }
+
     @GetMapping("/kiosk/products")
     public String showProducts(Model model) {
         List<ProductDto> products = productService.getAllProducts();

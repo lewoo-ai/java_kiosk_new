@@ -7,9 +7,11 @@ import kr.ac.mjc.kiosk.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/kiosk")
@@ -24,7 +26,6 @@ public class KioskController {
         this.categoryService = categoryService;
     }
 
-    // Product 엔드포인트들
     @GetMapping("/products/getAll")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         List<ProductDto> products = productService.getAllProducts();
@@ -37,7 +38,6 @@ public class KioskController {
         return new ResponseEntity<>(productId, HttpStatus.CREATED);
     }
 
-    // Category 엔드포인트들
     @GetMapping("/categories/getAll")
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         List<CategoryDto> categories = categoryService.getAllCategories();
@@ -56,5 +56,14 @@ public class KioskController {
         return new ResponseEntity<>(categoryId, HttpStatus.CREATED);
     }
 
-    // 다른 엔드포인트 또는 기능이 필요하면 추가할 수 있습니다.
+    // 새로운 엔드포인트: 특정 카테고리 코드에 해당하는 상품 목록을 반환
+    @GetMapping("/categories/{categoryCode}/products")
+    public ResponseEntity<List<ProductDto>> getProductsByCategoryCode(@PathVariable String categoryCode) {
+        // CategoryService를 통해 카테고리 코드에 해당하는 상품 목록 조회
+        List<ProductDto> products = categoryService.getProductsByCategoryCode(categoryCode);
+        // 조회된 상품 목록을 응답
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    // You can add more methods for other views or functionalities as needed.
 }

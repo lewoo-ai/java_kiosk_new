@@ -3,7 +3,6 @@ package kr.ac.mjc.kiosk.service;
 import jakarta.transaction.Transactional;
 import kr.ac.mjc.kiosk.domain.Orders;
 import kr.ac.mjc.kiosk.repository.OrderRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +19,12 @@ public class OrderService {
     @Autowired
     private final ProductService productService;
 
-
     public OrderService(OrderRepository orderRepository, ProductService productService) {
         this.orderRepository = orderRepository;
         this.productService = productService;
     }
+
+
     public Long createOrder() {
         Orders order = new Orders();
         order.setOrderCode(generateOrderCode());

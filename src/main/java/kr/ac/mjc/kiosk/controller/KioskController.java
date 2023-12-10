@@ -21,7 +21,6 @@ public class KioskController {
     private final ProductService productService;
     private final CategoryService categoryService;
     private final OrderService orderService;
-
     private final OrderDetailsService orderDetailsService;
 
     @Autowired

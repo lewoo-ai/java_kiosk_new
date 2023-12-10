@@ -40,5 +40,17 @@ public class ProductService {
         return productOptional.map(ProductDto::new);
     }
 
+    public Integer getProductPriceByCode(String productCode) {
+        Optional<Product> productOptional = productRepository.findByProductCode(productCode);
+
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            return product.getProductPrice();
+        } else {
+            // 상품 코드에 해당하는 상품이 없을 경우에 대한 처리 (예: 예외 발생 또는 기본값 반환)
+            throw new RuntimeException("해당 상품 코드에 해당하는 상품이 없습니다.");
+        }
+    }
+
 
 }

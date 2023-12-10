@@ -55,15 +55,17 @@ public class Product {
     }
 
 
-    public void update(String productCode, String productName, Integer productPrice,
-                       String productDetails, String productOptions, String productImage) {
-
+    public Product(String productCode, String productName, String categoryCode,
+                   Integer productPrice, String productDetails, String productOptions,
+                   String productImage, Category category) {
         this.productCode = productCode;
         this.productName = productName;
+        this.categoryCode = categoryCode;
         this.productPrice = productPrice;
         this.productDetails = productDetails;
         this.productOptions = productOptions;
         this.productImage = productImage;
+        this.category = category;
     }
 
 

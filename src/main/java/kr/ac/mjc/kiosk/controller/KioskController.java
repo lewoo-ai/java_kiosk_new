@@ -1,17 +1,18 @@
 package kr.ac.mjc.kiosk.controller;
 
+import kr.ac.mjc.kiosk.domain.OrderDetails;
 import kr.ac.mjc.kiosk.dto.CategoryDto;
 import kr.ac.mjc.kiosk.dto.ProductDto;
 import kr.ac.mjc.kiosk.service.CategoryService;
+import kr.ac.mjc.kiosk.service.OrderDetailsService;
+import kr.ac.mjc.kiosk.service.OrderService;
 import kr.ac.mjc.kiosk.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/kiosk")
@@ -19,12 +20,17 @@ public class KioskController {
 
     private final ProductService productService;
     private final CategoryService categoryService;
+    private final OrderService orderService;
+    private final OrderDetailsService orderDetailsService;
 
     @Autowired
-    public KioskController(ProductService productService, CategoryService categoryService) {
+    public KioskController(ProductService productService, CategoryService categoryService, OrderService orderService, OrderDetailsService orderDetailsService) {
         this.productService = productService;
         this.categoryService = categoryService;
+        this.orderService = orderService;
+        this.orderDetailsService = orderDetailsService;
     }
+
 
     @GetMapping("/products/getAll")
     public ResponseEntity<List<ProductDto>> getAllProducts() {
@@ -65,5 +71,20 @@ public class KioskController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    // You can add more methods for other views or functionalities as needed.
+    @PostMapping("/orders/create")
+    public ResponseEntity<Long> createOrder() {
+        Long orderId = orderService.createOrder();
+        return new ResponseEntity<>(orderId, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/orders/{orderId}/add-product")
+    public ResponseEntity<Void> addProductToOrder(@PathVariable Long orderId, @RequestParam String productCode) {
+        orderService.addProductToOrder(orderId, productCode);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{orderId}")
+    public List<OrderDetails> getOrderDetailsByOrderId(@PathVariable Long orderId) {
+        return orderDetailsService.getOrderDetailsByOrderId(orderId);
+    }
 }

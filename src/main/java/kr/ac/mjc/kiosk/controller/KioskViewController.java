@@ -32,10 +32,12 @@ public class KioskViewController {
     }
 
 
-    @GetMapping("/KioskView")
-    public String showALLKioskView() {
-        return "KioskView"; // "KioskView.html" 반환
+
+    @GetMapping("/AAAA")
+    public String getAAA() {
+        return "AAAA"; // "AAA.html"이라고 가정합니다.
     }
+
 
     @GetMapping("/productList")
     public String showAllproductList() {

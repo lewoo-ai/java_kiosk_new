@@ -20,107 +20,130 @@
     <button onclick="window.location.href='/kiosk/prductList.html'" class="menu-button hvr-underline-from-center">음료</button>
 </div>
 
-
-    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-        <img th:src="@{/images/카라멜마끼아또8.jpg}" alt="Product Image">
+<div class="product-container-wrapper">
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+        <img src="/images/카라멜마끼아또8.jpg" alt="Product Image">
         <div th:text="${product.productName}">카라멜마끼아또</div>
         <div th:text="'₩' + ${product.productPrice}">6000</div>
-    </div>
+        </div>
+    </a>
 
-    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-        <img th:src="@{/images/메가초코7.jpg}" alt="Product Image">
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+                <div class="product-container" th:data-page="${product.category.categoryCode}">
+        <img src="/images/메가초코7.jpg" alt="Product Image">
         <div th:text="${product.productName}">초코</div>
         <div th:text="'₩' + ${product.productPrice}">5000</div>
-    </div>
-
-    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-        <img th:src="@{/images/카페모카9.jpg}" alt="Product Image">
+                </div>
+            </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+        <img src="/images/카페모카9.jpg" alt="Product Image">
         <div th:text="${product.productName}">카페모카</div>
         <div th:text="'₩' + ${product.productPrice}">5000</div>
-    </div>
+        </div>
+    </a>
 
-    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-        <img th:src="@{/images/카푸치노10.jpg}" alt="Product Image">
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+        <img src="/images/카푸치노10.jpg" alt="Product Image">
         <div th:text="${product.productName}">카푸치노</div>
         <div th:text="'₩' + ${product.productPrice}">5500</div>
-    </div>
+        </div>
+    </a>
 
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/바닐라라뗴3.jpg}" alt="Product Image">
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/바닐라라떼3.jpg" alt="Product Image">
     <div th:text="${product.productName}">바닐라라떼</div>
     <div th:text="'₩' + ${product.productPrice}">6000</div>
 </div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/라임모히또1.png}" alt="Product Image">
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/라임모히또1.png" alt="Product Image">
     <div th:text="${product.productName}">라임모히또</div>
     <div th:text="'₩' + ${product.productPrice}">5000원</div>
 </div>
+    </a>
 
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/레몬에이드3.jpg}" alt="Product Image">
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/레몬에이드3.jpg" alt="Product Image">
     <div th:text="${product.productName}">레몬에이드</div>
     <div th:text="'₩' + ${product.productPrice}">5000원</div>
 </div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/리얼초코프라페4.jpg}" alt="Product Image">
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/리얼초코프라페4.jpg" alt="Product Image">
     <div th:text="${product.productName}">초코프라페</div>
     <div th:text="'₩' + ${product.productPrice}">6000원</div>
-</div>
+        </div>
+    </a>
 
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/망고요거트스무디5.jpg}" alt="Product Image">
-    <div th:text="${product.productName}">망고요거트스무디5</div>
+<a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+    <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/망고요거트스무디5.jpg" alt="Product Image">
+    <div th:text="${product.productName}">망고요거트스무디</div>
     <div th:text="'₩' + ${product.productPrice}">6500</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/복숭아아이스티10.gif}" alt="Product Image">
+    </div>
+</a>
+     <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+         <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/복숭아아이스티10.gif" alt="Product Image">
     <div th:text="${product.productName}">복숭아아이스티</div>
     <div th:text="'₩' + ${product.productPrice}">3000</div>
-</div>
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/꿀아메리카노1.png}" alt="Product Image">
+         </div>
+     </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}"><div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/꿀아메리카노1.jpg" alt="Product Image">
     <div th:text="${product.productName}">꿀아메리카노</div>
     <div th:text="'₩' + ${product.productPrice}">5000원</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/바닐라라뗴2.jpg}" alt="Product Image">
-    <div th:text="${product.productName}">바닐라라뗴</div>
+    </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/바닐라라떼2.jpg" alt="Product Image">
+    <div th:text="${product.productName}">바닐라라떼</div>
     <div th:text="'₩' + ${product.productPrice}">5000원</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/바닐라아메리카노3.jpg}" alt="Product Image">
+        </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/바닐라아메리카노3.jpg" alt="Product Image">
     <div th:text="${product.productName}">바닐라아메리카노</div>
     <div th:text="'₩' + ${product.productPrice}">6000원</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/아메리카노4.jpg}" alt="Product Image">
+        </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/아메리카노4.jpg" alt="Product Image">
     <div th:text="${product.productName}">아메리카노</div>
     <div th:text="'₩' + ${product.productPrice}">6500</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/연유라떼5.jpg}" alt="Product Image">
-    <div th:text="${product.productName}">연유라뗴</div>
+        </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/연유라떼5.jpg" alt="Product Image">
+    <div th:text="${product.productName}">연유라떼</div>
     <div th:text="'₩' + ${product.productPrice}">3000</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/카라멜마끼이아또6.jpg}" alt="Product Image">
+        </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/카라멜마끼아또6.jpg" alt="Product Image">
     <div th:text="${product.productName}">카라멜메마끼아또</div>
     <div th:text="'₩' + ${product.productPrice}">6500</div>
-</div>
-
-<div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
-    <img th:src="@{/images/카페라떼7.jpg}" alt="Product Image">
-    <div th:text="${product.productName}">카페라뗴</div>
+        </div>
+    </a>
+    <a th:each="product : ${products}" th:href="@{'/product/detail/' + ${product.id}}">
+        <div class="product-container" th:data-page="${product.category.categoryCode}">
+    <img src="/images/카페라떼7.jpg" alt="Product Image">
+    <div th:text="${product.productName}">카페라떼</div>
     <div th:text="'₩' + ${product.productPrice}">5000</div>
 </div>
+    </a>
 </div>
 
 <!-- The Modal -->

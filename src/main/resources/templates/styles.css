@@ -2,11 +2,12 @@
 
 /* 전체 페이지 스타일 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans KR', sans-serif; /* 한글 폰트 설정 */
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* 배경색 설정 */
 }
+
 
 /* 헤더 스타일 */
 #header {
@@ -28,45 +29,51 @@ body {
 
 /* 메뉴 컨테이너 스타일 */
 .menu-container {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff; /* 메뉴 배경색 설정 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
 }
 
 .menu-button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
+    background-color: #8c6239; /* 버튼 배경색 설정 */
+    color: #fff; /* 버튼 텍스트 색상 설정 */
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
     cursor: pointer;
-    background-color: #555;
-    color: white;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease; /* 호버 효과를 위한 전환 효과 */
 }
 
 .menu-button:hover {
-    background-color: #777;
+    background-color: #5a3a20; /* 호버 시 배경색 변경 */
 }
 .product-container-wrapper {
-    text-align: center; /* 제품 컨테이너들을 수평 가운데 정렬하기 위한 설정 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 170px; /* 푸터 높이만큼 여백 추가 */
 }
 /* 제품 컨테이너 스타일 */
 .product-container {
-    display: inline-block;
+    background-color: #fff; /* 제품 컨테이너 배경색 설정 */
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
     width: 200px;
-    height: 250px;
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    box-shadow: none;
-    text-align: center; /* 가운데 정렬을 위해 텍스트를 가운데 정렬로 설정 */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
 }
 
 .product-container img {
-    width: 100px;
-    height: 150px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .product-container div {
@@ -80,19 +87,21 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 170px;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+    height: 150px; /* 푸터 높이 수정 */
+    background-color: #8c6239;
+    color: #fff;
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1; /* 푸터를 상위 레이어로 표시 */
 }
+
 
 .footer-info {
     display: flex;
     align-items: center;
-    width: 50%;
+    width: 60%; /* 내부 영역 너비 조정 */
 }
 
 .footer-info-cart {
@@ -136,7 +145,7 @@ body {
 }
 
 .footer-info-pay .pay-button {
-    padding: 10px 20px;
+    padding: 15px 30px; /* 버튼 패딩 조정 */
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -145,7 +154,7 @@ body {
     color: white;
     text-decoration: none;
     transition: background-color 0.3s;
-    width: 50%; /* 푸터 내부 영역 너비 조정 */
+    width: 200px; /* 버튼 너비 조정 */
     display: flex;
     justify-content: flex-end;
 }

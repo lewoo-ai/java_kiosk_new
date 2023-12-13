@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff0000; /* Red color for error message */
+        }
+
+        #goBackButton {
+            padding: 10px;
+            background-color: #4caf50; /* Green color for the button */
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+<h1>오류가 생겼습니다</h1>
+<p>이전 페이지로 돌아가려면 아래 버튼을 클릭하세요.</p>
 
+<button id="goBackButton" onclick="goBack()">이전 페이지로 돌아가기</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>

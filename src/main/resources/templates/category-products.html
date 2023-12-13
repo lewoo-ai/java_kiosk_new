@@ -2,9 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category-Products</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .category {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .drink {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
+<header>
+    <h1>Category-Products</h1>
+</header>
 
+<section id="drinkSection">
+    <!-- Drink entries will be dynamically added here using JavaScript -->
+</section>
+
+<script>
+    $(document).ready(function() {
+        // Ajax request to fetch category data from the server
+        $.ajax({
+            url: '/api/categories',  // Replace with your actual backend endpoint
+            method: 'GET',
+            success: function(data) {
+                // Process the received data and update the page
+                updatePage(data);
+            },
+            error: function(error) {
+                console.error('Error fetching category data:', error);
+            }
+        });
+
+        // Function to update the page with the received data
+        function updatePage(data) {
+            var section = $('#drinkSection');
+
+            // Loop through the categories and add drinks dynamically
+            data.forEach(function(category) {
+                // Add category title
+                section.append('<div class="category"><h2>' + category.name + '</h2></div>');
+
+                // Loop through drinks in the category and add them
+                category.drinks.forEach(function(drink) {
+                    section.append('<div class="drink"><h3>' + drink.name + '</h3><p>' + drink.description + '</p><p>Price: $' + drink.price + '</p></div>');
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>

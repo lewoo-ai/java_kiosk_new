@@ -3,10 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <link rel="stylesheet" href="styels.css">
-    <script src="https://kit.fontawesome.com/11b6c7d991.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -14,18 +11,21 @@
 <div id="header">
     <img class="header-logo" src="../images/logo.png">
     <div class="header-text hgg99">키오스크 주문</div>
+
 </div>
 <div class="menu-container">
-    <button class="menu-button hvr-underline-from-center">커피(Ice)</button>
-    <button class="menu-button hvr-underline-from-center">커피(Hot)</button>
-    <button class="menu-button hvr-underline-from-center">음료</button>
+    <!-- 메뉴 버튼 추가 -->
+    <button onclick="window.location.href='/kiosk/prductListL.html'" class="menu-button hvr-underline-from-center">커피(Ice)</button>
+    <button onclick="window.location.href='/kiosk/prductList.html'" class="menu-button hvr-underline-from-center">커피(Hot)</button>
+    <button onclick="window.location.href='/kiosk/prductList.html'" class="menu-button hvr-underline-from-center">음료</button>
 </div>
 
 <div class="product-container-bg">
-    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category}">
-        <img th:src="${product.imageUrl}" alt="Product Image">
-        <div th:text="${product.name}"></div>
-        <div th:text="'₩' + ${product.price}"></div>
+    <!-- 제품 정보를 나타내는 부분 수정 -->
+    <div class="product-container" th:each="product : ${products}" th:data-page="${product.category.categoryCode}">
+        <img th:src="${product.productImage}" alt="Product Image">
+        <div th:text="${product.productName}"></div>
+        <div th:text="'₩' + ${product.productPrice}"></div>
     </div>
 </div>
 
@@ -34,20 +34,23 @@
 
 <div class="footer">
     <div class="footer-info">
+        <!-- 카트 정보 표시 -->
         <div class="footer-info-cart">
+            <!-- 카트 아이콘 및 카트 상품 개수, 가격 -->
             <div class="cart-img">
                 <img src="../images/cart.png" />
             </div>
             <div class="cart-text-wrapper">
                 <div class="cart-text">
                     <div>카트</div>
-                    <span class="cart-badge">0</span>
+                    <span class="cart-badge" th:text="${cartItems.size()}">0</span>
                 </div>
                 <div class="cart-line"></div>
-                <div class="cart-price price">0</div>
+                <div class="cart-price price" th:text="'₩' + ${cartTotalPrice}">0</div>
             </div>
         </div>
         <div class="footer-info-pay">
+            <!-- 결제하기 버튼 -->
             <a class="pay-button" href="#" role="button">
                 <span>결제하기</span>
                 <div class="icon">
@@ -59,14 +62,16 @@
 
     <div class="footer-cart">
         <table class="table-cart">
+            <!-- 카트에 담긴 상품 목록 -->
             <tr class="table-header">
                 <th>제품명</th>
                 <th>수량</th>
                 <th>가격</th>
                 <th>취소</th>
             </tr>
-            <tr th:each="orderDetail : ${orderDetails}">
-                <td th:text="${orderDetail.productName}"></td>
+            <tr th:each="orderDetail : ${cartItems}">
+                <!-- 카트에 담긴 각 상품 정보 -->
+                <td th:text="${orderDetail.product.productName}"></td>
                 <td th:text="${orderDetail.quantity}"></td>
                 <td th:text="'₩' + ${orderDetail.price}"></td>
                 <td><button>취소</button></td>

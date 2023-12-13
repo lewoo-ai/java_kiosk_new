@@ -31,6 +31,17 @@ public class KioskViewController {
         this.orderDetailsService = orderDetailsService;
     }
 
+
+    @GetMapping("/KioskView")
+    public String showALLKioskView() {
+        return "KioskView"; // "KioskView.html" 반환
+    }
+
+    @GetMapping("/productList")
+    public String showAllproductList() {
+        return "productList"; // "KioskView.html" 반환
+    }
+
     @GetMapping("/categories")
     public String showAllCategories(Model model) {
         List<CategoryDto> categories = categoryService.getAllCategories();

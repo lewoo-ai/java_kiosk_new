@@ -1,0 +1,174 @@
+/* styles.css */
+
+/* 전체 페이지 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* 헤더 스타일 */
+#header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-logo {
+    width: 100px;
+}
+
+.header-text {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* 메뉴 컨테이너 스타일 */
+.menu-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu-button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #777;
+}
+
+/* 제품 컨테이너 스타일 */
+.product-container {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+.product-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.product-container div {
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* 푸터 스타일 */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;
+}
+
+.footer-info-cart {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.cart-img img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.cart-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-text {
+    font-size: 14px;
+}
+
+.cart-badge {
+    background-color: #ff9800;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.cart-line {
+    height: 1px;
+    background-color: #777;
+    margin: 5px 0;
+}
+
+.cart-price {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-info-pay .pay-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.footer-info-pay .pay-button:hover {
+    background-color: #777;
+}
+
+/* 카트 목록 테이블 스타일 */
+.table-cart {
+    width: 100%;
+}
+
+.table-header th {
+    background-color: #555;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-cart td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-cart button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.table-cart button:hover {
+    background-color: #777;
+}

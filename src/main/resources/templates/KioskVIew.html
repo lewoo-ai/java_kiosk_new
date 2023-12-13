@@ -43,10 +43,10 @@
             <div class="cart-text-wrapper">
                 <div class="cart-text">
                     <div>카트</div>
-                    <span class="cart-badge" th:text="${cartItems.size()}">0</span>
+                    <span class="cart-badge" th:text="${orders.orderDetailsList.size()}">0</span>
                 </div>
                 <div class="cart-line"></div>
-                <div class="cart-price price" th:text="'₩' + ${cartTotalPrice}">0</div>
+                <div class="cart-price price" th:text="'₩' + ${orders.ordersPrice}">0</div>
             </div>
         </div>
         <div class="footer-info-pay">
@@ -69,7 +69,7 @@
                 <th>가격</th>
                 <th>취소</th>
             </tr>
-            <tr th:each="orderDetail : ${cartItems}">
+            <tr th:each="orderDetail : ${orders.orderDetailsList}">
                 <!-- 카트에 담긴 각 상품 정보 -->
                 <td th:text="${orderDetail.product.productName}"></td>
                 <td th:text="${orderDetail.quantity}"></td>
